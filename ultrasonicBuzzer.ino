@@ -31,7 +31,7 @@ void loop() {
   Serial.println(frequency);
 
     if (distance <= 80) { 
-      tone(buzzer, distance * 50);
+      tone(buzzer, frequency);
     }
     
     else {
