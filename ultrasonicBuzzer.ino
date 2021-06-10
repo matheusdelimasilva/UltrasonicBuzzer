@@ -1,7 +1,11 @@
 #define trigPin 12
 #define echoPin 13
 #define buzzer 11
+
+//Max distance the sensor will make sound (in centimeters)
+int maxDistance = 80;
 int frequency = 0;
+
 
 void setup() {
   Serial.begin (9600);
@@ -10,6 +14,7 @@ void setup() {
 }
 
 
+//Calculates the distance in cm
 int calculateDistance() {
   long duration, distance;
   digitalWrite(trigPin, LOW); 
@@ -26,7 +31,7 @@ int calculateDistance() {
 void loop() {
   int distance = calculateDistance(); 
   
-  frequency = (distance * 50);
+  frequency = (maxDistance * 50);
 
   Serial.println(frequency);
 
